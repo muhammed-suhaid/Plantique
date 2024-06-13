@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:plantique/pages/intro_page/intro_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,12 +17,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: const ColorScheme.light(
           background: Colors.white,
-          primary: Color(0xFF2C4243),
-          secondary: Color(0xFF74B49B),
+          primary: Color.fromARGB(255, 45, 108, 104),
+          secondary: Color.fromARGB(255, 128, 190, 197),
           tertiary: Color(0xFFE5F1EF),
         ),
       ),
-      home: ,
+      home: const IntroScreen(),
     );
   }
 }
