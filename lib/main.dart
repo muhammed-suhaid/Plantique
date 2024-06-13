@@ -13,8 +13,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Plantique',
       debugShowCheckedModeBanner: false,
-      home:
+      theme: ThemeData(
+        colorScheme: const ColorScheme.light(
+          background: Color(0xFFE5F1EF),
+          primary: Color(0xFF2C4243),
+          secondary: Color(0xFF74B49B),
+        ),
+      ),
+     home: ,
     );
   }
 }
-
