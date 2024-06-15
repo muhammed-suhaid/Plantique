@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         colorScheme: const ColorScheme.light(
           background: Colors.white,
           primary: Color.fromARGB(255, 45, 108, 104),
-          secondary: Color.fromARGB(255, 128, 190, 197),
+          secondary: Color.fromARGB(255, 219, 238, 237),
           tertiary: Color(0xFFE5F1EF),
         ),
       ),

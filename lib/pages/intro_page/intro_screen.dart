@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:plantique/components/my_button.dart';
+import 'package:plantique/pages/home_page/home_screen.dart';
 
 class IntroScreen extends StatefulWidget {
   const IntroScreen({super.key});
@@ -71,12 +72,22 @@ class _IntroScreenState extends State<IntroScreen> {
             const SizedBox(height: 40),
             const Text(
               'Plant a Tree &\nSave your Life',
-              style: TextStyle(fontWeight: FontWeight.w500, fontSize: 32),
+              style: TextStyle(
+                fontWeight: FontWeight.w500,
+                fontSize: 32,
+              ),
             ),
             const SizedBox(height: 40),
             MyButton(
-              text: 'Get Started', 
-              onTap: () {},
+              text: 'Get Started',
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const HomeScreen(),
+                  ),
+                );
+              },
             ),
           ],
         ),
