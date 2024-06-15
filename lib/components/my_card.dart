@@ -18,7 +18,7 @@ class MyCard extends StatefulWidget {
 class _MyCardState extends State<MyCard> {
   PageController pageController = PageController(viewportFraction: 0.7);
   double _currentPage = 0.0;
-  bool isFav = true; 
+  bool isFav = true;
 
   @override
   void initState() {
@@ -57,6 +57,7 @@ class _MyCardState extends State<MyCard> {
                 child: Container(
                   height: 350,
                   width: 200,
+                  margin: const EdgeInsets.symmetric(horizontal: 15),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     color: Colors.white,

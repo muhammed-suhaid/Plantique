@@ -65,7 +65,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               const SizedBox(height: 20),
               const MySearchBar(),
-              const SizedBox(height: 20),
+              const SizedBox(height: 30),
               MyCategory(
                 category: category,
               ),

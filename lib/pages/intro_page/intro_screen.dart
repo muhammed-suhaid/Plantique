@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:plantique/components/my_button.dart';
-import 'package:plantique/pages/home_page/home_screen.dart';
+import 'package:plantique/pages/bottom_nav_bar/bottom_navbar.dart';
 
 class IntroScreen extends StatefulWidget {
   const IntroScreen({super.key});
@@ -84,7 +84,7 @@ class _IntroScreenState extends State<IntroScreen> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const HomeScreen(),
+                    builder: (context) => const BottomNavBar(),
                   ),
                 );
               },
