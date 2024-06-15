@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:plantique/components/my_appbar.dart';
+import 'package:plantique/components/my_category.dart';
 import 'package:plantique/components/my_search.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -10,6 +11,15 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
+  List<String> category = [
+    'All',
+    'Outdoor',
+    'Indoor',
+    'Office',
+    'Garden',
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,6 +44,8 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               const SizedBox(height: 10),
               const MySearchBar(),
+              const SizedBox(height: 20), 
+              MyCategory(category: category,)
             ],
           ),
         ),
