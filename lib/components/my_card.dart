@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:plantique/data/plant_info.dart';
+import 'package:plantique/pages/plant_detail_page/plant_detail_screen.dart';
 
 class MyCard extends StatefulWidget {
   const MyCard({super.key});
@@ -47,7 +48,14 @@ class _MyCardState extends State<MyCard> {
               padding: const EdgeInsets.symmetric(vertical: 16),
               child: InkWell(
                 splashColor: Colors.transparent,
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => PlantDetailsScreen(plant: plant),
+                    ),
+                  );
+                },
                 child: Container(
                   height: 350,
                   width: 200,
