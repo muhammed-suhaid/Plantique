@@ -1,15 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:plantique/data/plant_info.dart';
 
 class MyCard extends StatefulWidget {
-  final List images;
-  final List name;
-  final List cash;
-  const MyCard({
-    super.key,
-    required this.images,
-    required this.name,
-    required this.cash,
-  });
+  const MyCard({super.key});
 
   @override
   State<MyCard> createState() => _MyCardState();
@@ -42,8 +35,9 @@ class _MyCardState extends State<MyCard> {
       height: 350,
       child: PageView.builder(
         controller: pageController,
-        itemCount: widget.images.length,
+        itemCount: plants.length,
         itemBuilder: (context, index) {
+          final plant = plants[index];
           double scale = (_currentPage - index).abs() < 1
               ? 1 - (_currentPage - index).abs() * 0.2
               : 0.8;
@@ -75,28 +69,31 @@ class _MyCardState extends State<MyCard> {
                       SizedBox(
                         height: 250,
                         child: Image.asset(
-                          widget.images[index],
+                          plant.image,
                           fit: BoxFit.fitHeight,
                         ),
                       ),
                       Padding(
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 12, vertical: 8),
+                          horizontal: 12,
+                          vertical: 8,
+                        ),
                         child: Row(
                           children: [
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  widget.name[index],
+                                  plant.name,
                                   style: TextStyle(
-                                      color:
-                                          Theme.of(context).colorScheme.primary,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 18),
+                                    color:
+                                        Theme.of(context).colorScheme.primary,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18,
+                                  ),
                                 ),
                                 Text(
-                                  '\$ ${widget.cash[index]}',
+                                  '\$ ${plant.price}',
                                   style: const TextStyle(color: Colors.grey),
                                 ),
                               ],
