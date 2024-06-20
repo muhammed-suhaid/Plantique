@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:plantique/components/my_button.dart';
 import 'package:plantique/components/plant_mini_details.dart';
 import 'package:plantique/models/plant.dart';
@@ -18,50 +17,41 @@ class PlantDetailsScreen extends StatelessWidget {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 18,
-                vertical: 20,
-              ),
+              padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 20),
               child: SafeArea(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    IconButton(
-                      onPressed: () {
+                    InkWell(
+                      onTap: () {
                         Navigator.pop(context);
                       },
-                      icon: const Padding(
-                        padding: EdgeInsets.only(left: 5),
-                        child: Icon(
-                          Icons.arrow_back_ios,
-                          color: Colors.white,
+                      child: Container(
+                        width: 50,
+                        height: 50,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: Theme.of(context).colorScheme.secondary,
                         ),
-                      ),
-                      style: IconButton.styleFrom(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15),
+                        child: const Padding(
+                          padding: EdgeInsets.only(left: 5),
+                          child: Icon(Icons.arrow_back_ios),
                         ),
-                        backgroundColor: Theme.of(context).colorScheme.primary,
-                        fixedSize: const Size(50, 50),
                       ),
                     ),
                     Text(
                       'Plant Details',
                       style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
+                        fontSize: 24,
                         color: Theme.of(context).colorScheme.primary,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
-                    const SizedBox(
-                      height: 50,
-                      width: 50,
-                    )
+                    const SizedBox(width: 50),
                   ],
                 ),
               ),
             ),
-            const SizedBox(height: 10),
             SizedBox(
               height: 350,
               width: double.infinity,
@@ -72,6 +62,7 @@ class PlantDetailsScreen extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             Container(
+              width: double.infinity,
               decoration: BoxDecoration(
                 color: Colors.grey[50],
                 borderRadius: const BorderRadius.only(
@@ -87,18 +78,18 @@ class PlantDetailsScreen extends StatelessWidget {
                 child: Column(
                   children: [
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
                           plant.name,
                           style: const TextStyle(
-                            fontSize: 24,
-                            fontWeight: FontWeight.w500,
+                            fontSize: 20,
+                            fontWeight: FontWeight.w400,
                           ),
                         ),
-                        const Spacer(),
                         Container(
-                          height: 35,
                           width: 35,
+                          height: 35,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(50),
                             color: Theme.of(context).colorScheme.secondary,
@@ -110,19 +101,19 @@ class PlantDetailsScreen extends StatelessWidget {
                         ),
                       ],
                     ),
-                    const SizedBox(height: 10),
+                    const SizedBox(height: 20),
                     Text(
                       plant.description,
                       style: const TextStyle(color: Colors.grey),
                     ),
                     const SizedBox(height: 20),
                     PlantMiniDetails(plant: plant),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 20), 
                     Row(
                       children: [
                         Container(
-                          height: 60,
                           width: 60,
+                          height: 60,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
                             color: Theme.of(context).colorScheme.primary,
@@ -130,18 +121,20 @@ class PlantDetailsScreen extends StatelessWidget {
                           child: Center(
                             child: Text(
                               '\$${plant.price}',
-                              style: const TextStyle(color: Colors.white),
+                              style: const TextStyle(
+                                color: Colors.white,
+                              ),
                             ),
                           ),
                         ),
                         Expanded(
                           child: MyButton(
-                            text: 'Add to cart',
+                            text: 'Add to Cart',
                             onTap: () {},
                           ),
                         ),
                       ],
-                    ),
+                    )
                   ],
                 ),
               ),
