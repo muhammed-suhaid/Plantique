@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:plantique/components/my_button.dart';
 import 'package:plantique/pages/auth/register_screen.dart';
-import 'package:plantique/pages/home_page/home_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -65,14 +64,7 @@ class _LoginScreenState extends State<LoginScreen> {
             const SizedBox(height: 20),
             MyButton(
               text: 'Login Now',
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const HomeScreen(),
-                  ),
-                );
-              },
+              onTap: () {},
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
