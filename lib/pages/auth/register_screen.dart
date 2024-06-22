@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:plantique/components/my_button.dart';
-import 'package:plantique/pages/auth/register_screen.dart';
+import 'package:plantique/pages/auth/login_screen.dart';
 import 'package:plantique/pages/home_page/home_screen.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class RegisterScreen extends StatefulWidget {
+  const RegisterScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<RegisterScreen> createState() => _LoginScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _LoginScreenState extends State<RegisterScreen> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  final TextEditingController confirmPassController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +25,7 @@ class _LoginScreenState extends State<LoginScreen> {
             SizedBox(
               height: 300,
               child: Image.asset(
-                'assets/images/plant1.png',
+                'assets/images/plant4.png',
                 fit: BoxFit.fitHeight,
               ),
             ),
@@ -63,8 +64,25 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
             const SizedBox(height: 20),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8),
+                color: Colors.grey[200],
+              ),
+              child: TextField(
+                obscureText: true,
+                controller: confirmPassController,
+                decoration: const InputDecoration(
+                  hintText: 'Confirm Password',
+                  hintStyle: TextStyle(color: Colors.grey),
+                  border: InputBorder.none,
+                ),
+              ),
+            ),
+            const SizedBox(height: 20),
             MyButton(
-              text: 'Login Now',
+              text: 'Register Now',
               onTap: () {
                 Navigator.push(
                   context,
@@ -77,17 +95,17 @@ class _LoginScreenState extends State<LoginScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text('Don\'t have an account?'),
+                const Text('Already have an account?'),
                 TextButton(
                   onPressed: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const RegisterScreen(),
+                        builder: (context) => const LoginScreen(),
                       ),
                     );
                   },
-                  child: const Text('Register Now'),
+                  child: const Text('Login Now'),
                 )
               ],
             )
