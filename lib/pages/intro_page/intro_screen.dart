@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:plantique/components/my_button.dart';
-import 'package:plantique/pages/bottom_nav_bar/bottom_navbar.dart';
+import 'package:plantique/pages/auth/login_screen.dart';
 
 class IntroScreen extends StatefulWidget {
   const IntroScreen({super.key});
@@ -84,7 +84,7 @@ class _IntroScreenState extends State<IntroScreen> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const BottomNavBar(),
+                    builder: (context) => const LoginScreen(),
                   ),
                 );
               },
