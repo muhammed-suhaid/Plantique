@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:plantique/pages/home_page/home_screen.dart';
+import 'package:plantique/pages/settings/settings.dart';
 
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({super.key});
@@ -15,7 +16,7 @@ class _MyNavBarState extends State<BottomNavBar> {
     const HomeScreen(),
     const Center(child: Text('Favourites')),
     const Center(child: Text('Bag')),
-    const Center(child: Text('Settings')),
+    const SettingsScreen(),
   ];
 
   @override

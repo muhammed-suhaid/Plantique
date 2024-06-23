@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:plantique/components/my_button.dart';
 import 'package:plantique/pages/auth/register_screen.dart';
+import 'package:plantique/services/auth_service.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -12,6 +13,27 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+
+  //Login method
+  void login() async {
+    final authService = AuthService();
+    try {
+      await authService.signInWithEmailPassword(
+        emailController.text,
+        passwordController.text,
+      );
+    } catch (e) {
+      if (mounted) {
+        showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: Text(e.toString()),
+          ),
+        );
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,7 +86,7 @@ class _LoginScreenState extends State<LoginScreen> {
             const SizedBox(height: 20),
             MyButton(
               text: 'Login Now',
-              onTap: () {},
+              onTap: login,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,

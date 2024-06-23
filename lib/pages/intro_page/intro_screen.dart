@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:plantique/components/my_button.dart';
-import 'package:plantique/pages/auth/login_screen.dart';
+import 'package:plantique/services/auth_gate.dart';
 
 class IntroScreen extends StatefulWidget {
   const IntroScreen({super.key});
@@ -78,16 +78,19 @@ class _IntroScreenState extends State<IntroScreen> {
               ),
             ),
             const SizedBox(height: 40),
-            MyButton(
-              text: 'Get Started',
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const LoginScreen(),
-                  ),
-                );
-              },
+            Padding(
+              padding: const EdgeInsets.all(18),
+              child: MyButton(
+                text: 'Get Started',
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const AuthGate(),
+                    ),
+                  );
+                },
+              ),
             ),
           ],
         ),
