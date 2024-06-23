@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:plantique/pages/cart/cart_screen.dart';
 import 'package:plantique/pages/home_page/home_screen.dart';
 import 'package:plantique/pages/settings/settings.dart';
 
@@ -15,7 +16,7 @@ class _MyNavBarState extends State<BottomNavBar> {
   List<Widget> body = [
     const HomeScreen(),
     const Center(child: Text('Favourites')),
-    const Center(child: Text('Bag')),
+    const CartScreen(),
     const SettingsScreen(),
   ];
 
