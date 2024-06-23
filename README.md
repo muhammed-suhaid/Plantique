@@ -26,3 +26,6 @@ Plantique, crafted with Flutter and integrated with Firebase and Riverpod, is a 
 2. **Riverpod State Management** : Facilitates efficient state handling, ensuring smooth performance and scalability.
 3. **Firebase Backend** :
     - Firebase Authentication: Enables secure user authentication and management.
+
+
+video link : https://youtu.be/JyWtZMq6m2g
