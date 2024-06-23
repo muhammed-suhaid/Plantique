@@ -1,5 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:plantique/components/my_button.dart';
 import 'package:plantique/models/cart.dart';
 import 'package:plantique/provider/plant_provider.dart';
 
@@ -21,34 +24,37 @@ class CartScreen extends ConsumerWidget {
     final height = MediaQuery.sizeOf(context).height;
     return Scaffold(
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(
-              vertical: 20,
-              horizontal: 18,
-            ),
-            child: Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Your Cart',
-                      style: TextStyle(
-                        color: Theme.of(context).colorScheme.primary,
-                        fontWeight: FontWeight.w500,
-                        fontSize: 22,
-                      ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(
+            vertical: 20,
+            horizontal: 18,
+          ),
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Your Cart',
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.primary,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 22,
                     ),
-                    TextButton(
-                      onPressed: () {
-                        clearCart();
-                      },
-                      child: const Text('clear'),
-                    ),
-                  ],
-                ),
-                ref.watch(plantProvider).cart.isEmpty
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      clearCart();
+                    },
+                    child: const Text('clear'),
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Expanded(
+                child: ref.watch(plantProvider).cart.isEmpty
                     ? Padding(
                         padding: EdgeInsets.only(top: height / 3),
                         child: const Center(
@@ -56,8 +62,6 @@ class CartScreen extends ConsumerWidget {
                         ),
                       )
                     : ListView.builder(
-                        shrinkWrap: true,
-                        physics: const NeverScrollableScrollPhysics(),
                         itemCount: ref.read(plantProvider).cart.length,
                         itemBuilder: (context, index) {
                           CartItem cart = ref.read(plantProvider).cart[index];
@@ -123,8 +127,13 @@ class CartScreen extends ConsumerWidget {
                           );
                         },
                       ),
-              ],
-            ),
+              ),
+              const SizedBox(height: 10),
+              MyButton(
+                text: '\$ ${ref.read(plantProvider).getTotalPrice()}',
+                onTap: () {},
+              ),
+            ],
           ),
         ),
       ),
