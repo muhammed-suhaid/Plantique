@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:plantique/components/my_button.dart';
 import 'package:plantique/components/plant_mini_details.dart';
 import 'package:plantique/models/plant.dart';
+import 'package:plantique/provider/plant_provider.dart';
 
-class PlantDetailsScreen extends StatelessWidget {
+class PlantDetailsScreen extends ConsumerWidget {
   final Plant plant;
   const PlantDetailsScreen({
     super.key,
@@ -11,7 +13,13 @@ class PlantDetailsScreen extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    //addToCart
+    void addToCart() {
+      Navigator.pop(context);
+      ref.read(plantProvider).addToCart(plant);
+    }
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -132,7 +140,7 @@ class PlantDetailsScreen extends StatelessWidget {
                           child: MyButton(
                             text: 'Add to Cart',
                             onTap: () {
-                              Navigator.pop(context);
+                              addToCart();
                             },
                           ),
                         ),
