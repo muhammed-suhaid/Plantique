@@ -20,3 +20,9 @@ Plantique, crafted with Flutter and integrated with Firebase and Riverpod, is a 
 4. **Plant Details Screen** : Dive into individual plant profiles showcasing detailed information and images.
 5. **Cart Screen** : Review selected plants, modify quantities, and proceed to checkout effortlessly.
 6. **Settings Screen** : Manage account settings, Allows users to securely log out of their accounts.
+
+### Technology Stack:
+1. **Flutter Framework** : Provides a responsive and visually appealing UI across iOS and Android platforms.
+2. **Riverpod State Management** : Facilitates efficient state handling, ensuring smooth performance and scalability.
+3. **Firebase Backend** :
+    - Firebase Authentication: Enables secure user authentication and management.
