@@ -1,6 +1,6 @@
 class Plant {
   final String name;
-  final String price;
+  final double price;
   final String image;
   final String description;
   final String size;
