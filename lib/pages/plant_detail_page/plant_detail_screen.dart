@@ -108,7 +108,7 @@ class PlantDetailsScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 20),
                     PlantMiniDetails(plant: plant),
-                    const SizedBox(height: 20), 
+                    const SizedBox(height: 20),
                     Row(
                       children: [
                         Container(
@@ -127,10 +127,13 @@ class PlantDetailsScreen extends StatelessWidget {
                             ),
                           ),
                         ),
+                        const SizedBox(width: 8),
                         Expanded(
                           child: MyButton(
                             text: 'Add to Cart',
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.pop(context);
+                            },
                           ),
                         ),
                       ],
